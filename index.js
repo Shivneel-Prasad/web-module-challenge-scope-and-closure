@@ -156,11 +156,22 @@ Use the scoreboard function below to do the following:
   "This game will require extra innings: Away 10 - Home 10"
 ]  
   */
-// inningscorecb, scorecb, number
-function scoreboard(/* CODE HERE */) {
-  /* CODE HERE */
+function scoreboard(getInningScoreCB, inningCB, numbers) {
+  let homeTotal = 0;
+  let awayTotal = 0;
+  const gameScore = [];
+  for(let i = 1; i <= numbers; i++){
+    
+    homeTotal = homeTotal + getInningScore(inningCB).Home;
+    awayTotal = awayTotal + getInningScore(inningCB).Away;
+    gameScore.push(`Inning ${i}: Home ${getInningScore(inningCB).Home} - Away ${getInningScore(inningCB).Away}`)
+  
+  }
+  return gameScore;
+  
 }
 
+console.log('Task 5:',scoreboard(getInningScore,inning, 9)); 
 
 
 
